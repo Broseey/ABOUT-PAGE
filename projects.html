@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Page</title>
+    <link rel="stylesheet" href="css/projects.css">
+</head>
+<body>
+
+    <section></section>
+    <section>
+        <section class="content">
+
+            <svg viewBox="0 0 1728 852" fill="none" preserveAspectRatio="xMidYMin slice">
+                <defs>
+                    <filter id="displacementFilter">
+                        <feTurbulence type="fractalNoise" baseFrequency="0.03" numOctaves="1" result="noise" />
+                        <feDisplacementMap in="SourceGraphic" in2="noise" scale="50" xChannelSelector="R" yChannelSelector="G" />
+                    </filter>
+                    <mask id="circleMask">
+                        <circle cx="444" cy="800" r="300" fill="white" class="displacement"/>
+                    </mask>
+                </defs>
+
+                <!-- <image style="transform: translateX(-20%);" href="./assets/broselookgood.jpg"  height="100%" width="100%" mask="url(#circleMask)" /> -->
+                <rect width="1728" height="851.376" fill="#C0FF0D" width="100%" height="100%" mask="url(#circleMask)"/>
+            </svg>
+                
+            <ul>
+                <li>
+                    <a href="">
+                        <span>Ford Trends</span>
+                        <p class="date">Jan 2022</p>
+                        <div class="border"></div>
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        <span>Ford Trends</span>
+                        <p class="date">Jan 2022</p>
+                        <div class="border"></div>
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        <span>Ford Trends</span>
+                        <p class="date">Jan 2022</p>
+                        <div class="border"></div>
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        <span>Ford Trends</span>
+                        <p class="date">Jan 2022</p>
+                        <div class="border"></div>
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        <span>Ford Trends</span>
+                        <p class="date">Jan 2022</p>
+                        <div class="border"></div>
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        <span>Ford Trends</span>
+                        <p class="date">Jan 2022</p>
+                        <div class="border"></div>
+                    </a>
+                </li>
+            </ul>
+        </section>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.29/bundled/lenis.min.js"></script> 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.3/gsap.min.js" integrity="sha512-7Au1ULjlT8PP1Ygs6mDZh9NuQD0A5prSrAUiPHMXpU6g3UMd8qesVnhug5X4RoDr35x5upNpx0A6Sisz1LSTXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.3/ScrollTrigger.min.js" integrity="sha512-LQQDtPAueBcmGXKdOBcMkrhrtqM7xR2bVrnMtYZ8ImAZhFlIb5xrMqQ6uZviyeSB+4mYj89ta8niiCIQM1Gj0w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script>
+        gsap.registerPlugin(ScrollTrigger);
+
+        let tl = gsap.timeline({
+            scrollTrigger : {
+                trigger: ".content",
+                start:"top top",
+                end: "bottom top",
+                scrub:true,
+                pin: true,
+                toggleActions: 'play none none reverse'
+            }
+        })
+
+        tl
+            .to('.displacement', {
+                attr:{
+                    r:700
+                },
+                duration:2
+            })
+            .to('span, p',{
+                y:0,
+                stagger:0.1,
+            },"-=2")
+            .to('.border',{
+                scaleX: 1,
+                stagger:0.1,      
+            },"-=2")
+
+
+        // smooth scroll Lenis
+        const lenis = new Lenis()
+
+        lenis.on('scroll', (e) => {
+        console.log(e)
+        })
+
+        function raf(time) {
+        lenis.raf(time)
+        requestAnimationFrame(raf)
+        }
+
+        requestAnimationFrame(raf)
+    </script>
+
+</body>
+</html>
