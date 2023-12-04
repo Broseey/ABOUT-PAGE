@@ -5,7 +5,7 @@ export const data = [
       itemLink: "https://convoservice.com.ng",
       itemCopy:
         "Transportation is seen everywhere, but is comfort seen everywhere? With luxury vehicles for rides and security services offered to ensure you get comfort with a touch of security. Convoservice provides rides in Lagos and Adoekiti, Nigeria, Africa, for business trips and conventional conferences. Convoservices is highly recommended.",
-      itemImg: "./../assets/about-images/paint-2985569_1280.jpg",
+      itemImg: "./assets/about-images/paint-2985569_1280.jpg",
     },
     {
       itemName: "Aesthetic Photography Gallery",
